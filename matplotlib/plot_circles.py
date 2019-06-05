@@ -3,33 +3,37 @@ import numpy as np
 from matplotlib.patches import Circle
 
 
-def xy(r,phi):
-  return r*np.cos(phi), r*np.sin(phi)
+def xy(r, phi,  c_1=0, c_2=0):
+  ''' Cartesian coordinates for point at polar coordinates r, phi with origin (c_1, c_2) '''
+  return r*np.cos(phi) + c_1, r*np.sin(phi) + c_2
 
-# Circle at center (c_1, c_2) with radius r
-def xy_2(r,phi, c_1, c_2):
-    return r*np.cos(phi) + c_1, r*np.sin(phi) + c_2
+def circle(ax, r, phi_0=0, phi_1=2*np.pi, c_1=0, c_2=0):
+  ''' 
+    Circle arc with center (c_1, c_2) and radius r between the given angle values.
+    
+    Args:
+
+      - ax (Axes) :     Axes instance for plotting 
+      - r (float) :     Circle radius
+      - phi_0 (float):  Angle for origin point of the arc 
+      - phi_1 (float):  Angle for end point of the arc
+      - c_1 (float):    x coordinate of circle center
+      - c_2 (float):    y coordinate of circle center
+
+  '''
+  phis = np.arange(phi_0, phi_1, 0.01)
+  return xy(r, phis, c_1, c_2)
+
+
 
 a = 1.0
 
 fig = plt.figure(figsize=(8,8))
-ax = fig.add_subplot(111,aspect='equal')  
+ax = fig.add_subplot(111,aspect='equal')
 
-phis = np.arange(0,3.14/2,0.01)
-r =2.
-ax.plot( *xy(r,phis), c='r',ls='-' )
-
-phis = np.arange(-3.14/2, 3.14/2, 0.01)
-r = 1.
-c_1 = 0.0
-c_2 = 1.
-ax.plot( *xy_2(r, phis, c_1, c_2), ls='-' )
-
-phis = np.arange(0.,6.28,0.01)
-r = 0.5
-c_1 = np.sqrt(2)
-c_2 = 0.5
-ax.plot( *xy_2(r,phis, c_1, c_2), ls='-' )
+ax.plot(*circle(ax, 2., 0, np.pi/2))
+ax.plot(*circle(ax, a, -np.pi/2, np.pi/2, 0, a))
+ax.plot(*circle(ax, a/2, c_1=a*np.sqrt(2), c_2=a/2))
 
 # Horizontal line
 ax.plot([0,0,0], zorder = 1)
