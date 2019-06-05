@@ -1,14 +1,13 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import Circle
 
 
 def xy(r, phi,  c_1=0, c_2=0):
-  ''' Cartesian coordinates for point at polar coordinates r, phi with origin (c_1, c_2) '''
-  return r*np.cos(phi) + c_1, r*np.sin(phi) + c_2
+    ''' Cartesian coordinates for point at polar coordinates r, phi with origin (c_1, c_2) '''
+    return r*np.cos(phi) + c_1, r*np.sin(phi) + c_2
 
 def circle(ax, r, phi_0=0, phi_1=2*np.pi, c_1=0, c_2=0):
-  ''' 
+    ''' 
     Circle arc with center (c_1, c_2) and radius r between the given angle values.
     
     Args:
@@ -20,10 +19,9 @@ def circle(ax, r, phi_0=0, phi_1=2*np.pi, c_1=0, c_2=0):
       - c_1 (float):    x coordinate of circle center
       - c_2 (float):    y coordinate of circle center
 
-  '''
-  phis = np.arange(phi_0, phi_1, 0.01)
-  return xy(r, phis, c_1, c_2)
-
+    '''
+    phis = np.arange(phi_0, phi_1, 0.01)
+    return xy(r, phis, c_1, c_2)
 
 
 a = 1.0
