@@ -28,9 +28,9 @@ a = 1.0
 fig = plt.figure(figsize=(8,8))
 ax = fig.add_subplot(111,aspect='equal')
 
-ax.plot(*circle(ax, 2., 0, np.pi/2))
-ax.plot(*circle(ax, a, -np.pi/2, np.pi/2, 0, a))
-ax.plot(*circle(ax, a/2, c_1=a*np.sqrt(2), c_2=a/2))
+ax.plot(*circle(2., 0, np.pi/2))
+ax.plot(*circle(a, -np.pi/2, np.pi/2, 0, a))
+ax.plot(*circle(a/2, c_1=a*np.sqrt(2), c_2=a/2))
 
 # Horizontal line
 ax.plot([0,0,0], zorder = 1)
