@@ -6,13 +6,12 @@ def xy(r, phi,  c_1=0, c_2=0):
     ''' Cartesian coordinates for point at polar coordinates r, phi with origin (c_1, c_2) '''
     return r*np.cos(phi) + c_1, r*np.sin(phi) + c_2
 
-def circle(ax, r, phi_0=0, phi_1=2*np.pi, c_1=0, c_2=0):
+def circle(r, phi_0=0, phi_1=2*np.pi, c_1=0, c_2=0):
     ''' 
     Circle arc with center (c_1, c_2) and radius r between the given angle values.
     
     Args:
 
-      - ax (Axes) :     Axes instance for plotting 
       - r (float) :     Circle radius
       - phi_0 (float):  Angle for origin point of the arc 
       - phi_1 (float):  Angle for end point of the arc
