@@ -48,6 +48,9 @@ circle = Circle((0, 0), radius=radius, fill=False, color='gray', lw=.5)
 ax.add_patch(polygon)
 ax.add_patch(circle)
 
-ax.set_xlim(-6, 6)
-ax.set_ylim(-6, 6)
+# ax.set_xlim(-6, 6)
+# ax.set_ylim(-6, 6)
+
+plt.axis('scaled')
+
 plt.show()
